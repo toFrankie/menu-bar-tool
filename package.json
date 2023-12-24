@@ -1,47 +1,47 @@
 {
   "name": "menu-bar-tool",
-  "productName": "menu-bar-tool",
   "version": "0.0.1",
   "description": "MenuBar Tool for macOS",
-  "main": ".vite/build/main.js",
+  "main": "./dist/main/index.js",
+  "author": "Frankie <1426203851@qq.com>",
+  "homepage": "https://github.com/toFrankie/menu-bar-tool",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts,.tsx .",
-    "prettier": "prettier --write 'src/**/*.{ts,tsx,html,css}'"
+    "format": "prettier --write . --cache",
+    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --cache",
+    "tsc:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "tsc:web": "tsc --noEmit -p tsconfig.web.json --composite false",
+    "tsc": "pnpm run tsc:node && pnpm run tsc:web",
+    "start": "electron-vite preview --outDir=dist",
+    "dev": "electron-vite dev --outDir=dist",
+    "package": "pnpm run tsc && electron-vite build --outDir=dist && electron-forge package",
+    "make": "pnpm run tsc && electron-vite build --outDir=dist && electron-forge make"
   },
-  "keywords": [],
-  "author": {
-    "name": "Frankie",
-    "email": "1426203851@qq.com"
+  "dependencies": {
+    "@electron-toolkit/preload": "3.0.0",
+    "@electron-toolkit/utils": "3.0.0",
+    "electron-updater": "6.1.7"
   },
-  "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "7.2.0",
     "@electron-forge/maker-deb": "7.2.0",
     "@electron-forge/maker-rpm": "7.2.0",
     "@electron-forge/maker-squirrel": "7.2.0",
     "@electron-forge/maker-zip": "7.2.0",
-    "@electron-forge/plugin-auto-unpack-natives": "7.2.0",
-    "@electron-forge/plugin-vite": "7.2.0",
-    "@electron-forge/shared-types": "7.2.0",
+    "@electron-toolkit/eslint-config-prettier": "2.0.0",
+    "@electron-toolkit/eslint-config-ts": "1.0.1",
+    "@electron-toolkit/tsconfig": "1.0.1",
+    "@types/node": "20.10.5",
     "@types/react": "18.2.45",
     "@types/react-dom": "18.2.18",
-    "@typescript-eslint/eslint-plugin": "6.15.0",
-    "@typescript-eslint/parser": "6.15.0",
+    "@vitejs/plugin-react": "4.2.1",
     "electron": "28.1.0",
+    "electron-vite": "2.0.0-beta.2",
     "eslint": "8.56.0",
-    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-react": "7.33.2",
     "prettier": "3.1.1",
-    "ts-node": "10.9.2",
-    "typescript": "5.3.3"
-  },
-  "dependencies": {
-    "electron-squirrel-startup": "1.0.0",
-    "menubar": "9.4.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "typescript": "5.3.3",
+    "vite": "5.0.10"
   }
 }
