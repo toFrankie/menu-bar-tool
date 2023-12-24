@@ -27,6 +27,8 @@
     "@electron-forge/plugin-auto-unpack-natives": "7.2.0",
     "@electron-forge/plugin-vite": "7.2.0",
     "@electron-forge/shared-types": "7.2.0",
+    "@types/react": "18.2.45",
+    "@types/react-dom": "18.2.18",
     "@typescript-eslint/eslint-plugin": "6.15.0",
     "@typescript-eslint/parser": "6.15.0",
     "electron": "28.1.0",
@@ -38,6 +40,8 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "1.0.0",
-    "menubar": "9.4.0"
+    "menubar": "9.4.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   }
 }
